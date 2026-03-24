@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina Mirrors | Reflect Your Style</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo" data-route="home">Lumina</a>
+            <div class="nav-links">
+                <a href="#" data-route="shop">Shop</a>
+                <a href="#" data-route="about">About</a>
+                <a href="#" data-route="contact">Contact</a>
+                <a href="#" data-route="faq">FAQ</a>
+            </div>
+            <div class="nav-icons">
+                <button class="icon-btn" id="searchBtn">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                </button>
+                <button class="icon-btn" id="cartBtn">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+                <button class="icon-btn mobile-menu-btn" id="mobileMenuBtn">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M4 6h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main id="app-content">
+        <!-- Views will be injected here by app.js -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3 class="footer-logo">Lumina</h3>
+                <p>Premium, smart, and modern mirrors designed to reflect your style. Elevate your space with cutting-edge illumination and minimalist design.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="#" data-route="shop" data-filter="smart">Smart Mirrors</a></li>
+                    <li><a href="#" data-route="shop" data-filter="led">LED Mirrors</a></li>
+                    <li><a href="#" data-route="shop" data-filter="decorative">Decorative</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#" data-route="about">About Us</a></li>
+                    <li><a href="#" data-route="contact">Contact</a></li>
+                    <li><a href="#" data-route="faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Stay Updated</h4>
+                <p>Subscribe for 10% off your first order.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault()">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit">→</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Lumina Mirrors. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div class="cart-drawer-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button class="close-cart" id="closeCartBtn">✕</button>
+        </div>
+        <div class="cart-items" id="cartItemsContainer">
+            <!-- Cart items injected here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total</span>
+                <span id="cartTotalAmount">$0.00</span>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn" disabled>Checkout</button>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Script references -->
+    <script src="app.js"></script>
+</body>
+</html>
