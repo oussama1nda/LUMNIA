@@ -508,11 +508,11 @@ function renderContact() {
             <form class="contact-form" onsubmit="event.preventDefault(); showToast('Message sent successfully. We will get back to you shortly!'); this.reset();">
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="text" required placeholder="John Doe">
+                    <input type="text" required placeholder="Enter your name">
                 </div>
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="email" required placeholder="john@example.com">
+                    <input type="email" required placeholder="youremail@example.com">
                 </div>
                 <div class="form-group">
                     <label>Subject</label>
