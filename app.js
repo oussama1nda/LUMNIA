@@ -1,19 +1,12 @@
 // Product Database
 const products = [
-    { id: 'p1', name: 'Lumina Horizon', price: 899, category: 'smart', image: "Capture d'écran 2026-03-24 200507.png", isNew: true },
-    { id: 'p2', name: 'Lumina Eclipse', price: 499, category: 'led', image: "Capture d'écran 2026-03-24 200520.png" },
-    { id: 'p3', name: 'Lumina Aura', price: 549, category: 'led', image: "Capture d'écran 2026-03-24 200533.png", isBestSeller: true },
-    { id: 'p4', name: 'Lumina Nova', price: 1299, category: 'smart', image: "Capture d'écran 2026-03-24 200548.png" },
-    { id: 'p5', name: 'Lumina Zenith', price: 399, category: 'decorative', image: "Capture d'écran 2026-03-24 200602.png" },
-    { id: 'p6', name: 'Lumina Vertex', price: 649, category: 'led', image: "Capture d'écran 2026-03-24 200614.png" },
-    { id: 'p7', name: 'Lumina Solis', price: 1099, category: 'smart', image: "Capture d'écran 2026-03-24 200625.png" },
-    { id: 'p8', name: 'Lumina Reflection', price: 459, category: 'decorative', image: "ChatGPT Image Mar 24, 2026, 07_22_30 PM.png" },
-    { id: 'p9', name: 'Lumina Infinity', price: 1499, category: 'smart', image: "ChatGPT Image Mar 24, 2026, 07_26_03 PM.png", isNew: true },
-    { id: 'p10', name: 'Lumina Oasis', price: 599, category: 'led', image: "WhatsApp Image 2026-03-24 at 18.45.33 (1).jpeg" },
-    { id: 'p11', name: 'Lumina Mirage', price: 349, category: 'decorative', image: "WhatsApp Image 2026-03-24 at 18.45.33 (2).jpeg" },
-    { id: 'p12', name: 'Lumina Prism', price: 299, category: 'decorative', image: "WhatsApp Image 2026-03-24 at 18.45.33 (3).jpeg" },
-    { id: 'p13', name: 'Lumina Halo', price: 699, category: 'led', image: "WhatsApp Image 2026-03-24 at 18.45.33 (4).jpeg" },
-    { id: 'p14', name: 'Lumina Ascent', price: 1199, category: 'smart', image: "WhatsApp Image 2026-03-24 at 18.45.33.jpeg" },
+    { id: 'p2', name: 'Lumnia Eclipse', price: 499, category: 'decorative', image: "Capture d'écran 2026-03-24 200520.png", isBestSeller: true },
+    { id: 'p7', name: 'Lumnia Solis', price: 1099, category: 'decorative', image: "Capture d'écran 2026-03-24 200625.png", isNew: true },
+    { id: 'p8', name: 'Lumnia Reflection', price: 459, category: 'decorative', image: "ChatGPT Image Mar 24, 2026, 07_22_30 PM.png" },
+    { id: 'p10', name: 'Lumnia Oasis', price: 599, category: 'smart', image: "WhatsApp Image 2026-03-24 at 18.45.33 (1).jpeg" },
+    { id: 'p11', name: 'Lumnia Mirage', price: 349, category: 'smart', image: "WhatsApp Image 2026-03-24 at 18.45.33 (2).jpeg", isBestSeller: true },
+    { id: 'p12', name: 'Lumnia Prism', price: 299, category: 'smart', image: "WhatsApp Image 2026-03-24 at 18.45.33 (3).jpeg", isNew: true },
+    { id: 'p13', name: 'Lumnia Halo', price: 699, category: 'smart', image: "WhatsApp Image 2026-03-24 at 18.45.33 (4).jpeg" },
 ];
 
 // App State
@@ -21,7 +14,7 @@ const state = {
     cart: [],
     currentRoute: 'home',
     currentProductId: null,
-    shopFilter: 'all' // all, smart, led, decorative
+    shopFilter: 'all' // all, smart, decorative
 };
 
 // DOM Elements
@@ -190,13 +183,13 @@ function formatPrice(price) {
 }
 
 // Product Card HTML Generator
-function getProductCardHTML(product) {
+function getProductCardHTML(product, index = 0) {
     let tags = '';
     if (product.isNew) tags += `<span class="tag">New</span>`;
     else if (product.isBestSeller) tags += `<span class="tag">Bestseller</span>`;
 
     return `
-        <div class="product-card animate-slide-up" data-id="${product.id}">
+        <div class="product-card animate-slide-up" data-id="${product.id}" style="animation-delay: ${index * 0.15}s">
             <div class="product-img-wrapper">
                 ${tags}
                 <img src="${product.image}" alt="${product.name}" class="product-img">
@@ -216,14 +209,14 @@ function renderHome() {
     
     appContent.innerHTML = `
         <section class="hero">
-            <img src="${products[12].image}" alt="Hero" class="hero-bg">
+            <img src="${products[6].image}" alt="Hero" class="hero-bg">
             <div class="hero-overlay"></div>
             <div class="container hero-content animate-slide-up">
                 <h1>Reflect Your<br><span class="text-gradient">True Brilliance.</span></h1>
                 <p class="lead">Experience the perfect fusion of minimalist aesthetics and cutting-edge lighting technology.</p>
                 <div style="display: flex; gap: 16px;">
                     <button class="btn btn-primary" data-route="shop">Shop Collection</button>
-                    <button class="btn btn-glass" data-route="about">Discover Lumina</button>
+                    <button class="btn btn-glass" data-route="about">Discover Lumnia</button>
                 </div>
             </div>
         </section>
@@ -234,7 +227,7 @@ function renderHome() {
                 <a href="#" class="text-gradient" data-route="shop">View all →</a>
             </div>
             <div class="product-grid">
-                ${featured.map(getProductCardHTML).join('')}
+                ${featured.map((p, i) => getProductCardHTML(p, i)).join('')}
             </div>
         </section>
 
@@ -249,7 +242,7 @@ function renderHome() {
                 <button class="btn btn-secondary" data-route="shop" data-filter="smart">Explore Smart Mirrors</button>
             </div>
             <div class="split-img animate-slide-up" style="animation-delay: 0.2s;">
-                <img src="${products[6].image}" alt="Smart Mirror detail">
+                <img src="${products[1].image}" alt="Smart Mirror detail" class="animate-float">
             </div>
         </section>
     `;
@@ -259,7 +252,6 @@ function renderShop() {
     const categories = [
         { id: 'all', name: 'All Collection' },
         { id: 'smart', name: 'Smart Mirrors' },
-        { id: 'led', name: 'LED Illuminated' },
         { id: 'decorative', name: 'Decorative & Wall' }
     ];
 
@@ -291,7 +283,7 @@ function renderShop() {
                 
                 <main>
                     <div class="product-grid" style="margin-top: 0;">
-                        ${filtered.map(getProductCardHTML).join('')}
+                        ${filtered.map((p, i) => getProductCardHTML(p, i)).join('')}
                     </div>
                 </main>
             </div>
@@ -358,7 +350,7 @@ function renderProduct() {
             <div style="margin-top: 100px;">
                 <h2 style="text-align: center; margin-bottom: 48px;">You May Also Like</h2>
                 <div class="product-grid">
-                    ${related.map(getProductCardHTML).join('')}
+                    ${related.map((p, i) => getProductCardHTML(p, i)).join('')}
                 </div>
             </div>
         </div>
@@ -369,18 +361,18 @@ function renderAbout() {
     appContent.innerHTML = `
         <div class="container section animate-slide-up">
             <div class="page-header">
-                <h1>About Lumina</h1>
+                <h1>About Lumnia</h1>
                 <p class="lead">Redefining reflection through technology and design.</p>
             </div>
             
             <div class="split-section" style="margin-top: 64px;">
-                <div class="split-img">
-                    <img src="${products[8].image}" alt="Lumina Design">
+                <div class="split-img animate-float">
+                    <img src="${products[3].image}" alt="Lumnia Design">
                 </div>
                 <div>
                     <h2>Our Philosophy</h2>
                     <p class="lead">We believe a mirror is more than just glass. It's a portal to how you see yourself, and a crucial design element that brings light and space into a room.</p>
-                    <p style="color: var(--text-secondary); margin-bottom: 24px;">Founded in 2024, Lumina was born from a desire to merge high-end interior aesthetics with smart home capabilities. Every piece we create is rigorously tested for lighting consistency, electrical safety, and material durability.</p>
+                    <p style="color: var(--text-secondary); margin-bottom: 24px;">Founded in 2024, Lumnia was born from a desire to merge high-end interior aesthetics with smart home capabilities. Every piece we create is rigorously tested for lighting consistency, electrical safety, and material durability.</p>
                     <button class="btn btn-secondary" onclick="navigate('contact'); window.scrollTo(0,0);">Get in Touch</button>
                 </div>
             </div>
@@ -468,7 +460,7 @@ function renderCheckout() {
 
 // Global purchase completion
 window.completePurchase = function() {
-    showToast('Payment successful! Thank you for choosing Lumina Mirrors.');
+    showToast('Payment successful! Thank you for choosing Lumnia Mirrors.');
     state.cart = [];
     saveCart();
     navigate('home');
@@ -512,7 +504,7 @@ function renderContact() {
                 </div>
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="email" required placeholder="youremail@example.com">
+                    <input type="email" required placeholder="Enter your email">
                 </div>
                 <div class="form-group">
                     <label>Subject</label>
@@ -572,13 +564,13 @@ function setupDynamicListeners(route) {
 
 // Cart Logic
 function loadCart() {
-    const saved = localStorage.getItem('lumina_cart');
+    const saved = localStorage.getItem('lumnia_cart');
     if(saved) state.cart = JSON.parse(saved);
     updateCartUI();
 }
 
 function saveCart() {
-    localStorage.setItem('lumina_cart', JSON.stringify(state.cart));
+    localStorage.setItem('lumnia_cart', JSON.stringify(state.cart));
     updateCartUI();
 }
 
