@@ -1,12 +1,12 @@
 // Product Database
 const products = [
-    { id: 'p2', name: 'Lumnia Eclipse', price: 499, category: 'decorative', image: "Capture d'écran 2026-03-24 200520.png", isBestSeller: true },
-    { id: 'p7', name: 'Lumnia Solis', price: 1099, category: 'decorative', image: "Capture d'écran 2026-03-24 200625.png", isNew: true },
-    { id: 'p8', name: 'Lumnia Reflection', price: 459, category: 'decorative', image: "ChatGPT Image Mar 24, 2026, 07_22_30 PM.png" },
-    { id: 'p10', name: 'Lumnia Oasis', price: 599, category: 'smart', image: "WhatsApp Image 2026-03-24 at 18.45.33 (1).jpeg" },
-    { id: 'p11', name: 'Lumnia Mirage', price: 349, category: 'smart', image: "WhatsApp Image 2026-03-24 at 18.45.33 (2).jpeg", isBestSeller: true },
-    { id: 'p12', name: 'Lumnia Prism', price: 299, category: 'smart', image: "WhatsApp Image 2026-03-24 at 18.45.33 (3).jpeg", isNew: true },
-    { id: 'p13', name: 'Lumnia Halo', price: 699, category: 'smart', image: "WhatsApp Image 2026-03-24 at 18.45.33 (4).jpeg" },
+    { id: 'p2', name: 'Lumnia Eclipse', price: 3200, category: 'smart', image: "Capture d'écran 2026-03-24 200520.png", isBestSeller: true },
+    { id: 'p7', name: 'Lumnia Solis', price: 3250, category: 'decorative', image: "Capture d'écran 2026-03-24 200625.png", isNew: true },
+    { id: 'p8', name: 'Lumnia Reflection', price: 3500, category: 'decorative', image: "ChatGPT Image Mar 24, 2026, 07_22_30 PM.png" },
+    { id: 'p10', name: 'Lumnia Oasis', price: 3700, category: 'smart', image: "WhatsApp Image 2026-03-24 at 18.45.33 (1).jpeg" },
+    { id: 'p11', name: 'Lumnia Mirage', price: 3700, category: 'smart', image: "WhatsApp Image 2026-03-24 at 18.45.33 (2).jpeg", isBestSeller: true },
+    { id: 'p12', name: 'Lumnia Prism', price: 3650, category: 'smart', image: "WhatsApp Image 2026-03-24 at 18.45.33 (3).jpeg", isNew: true },
+    { id: 'p13', name: 'Lumnia Halo', price: 3800, category: 'smart', image: "WhatsApp Image 2026-03-24 at 18.45.33 (4).jpeg" },
 ];
 
 // App State
@@ -179,7 +179,7 @@ function updateActiveNavLinks() {
 
 // Format Currency
 function formatPrice(price) {
-    return '$' + price.toLocaleString('en-US', {minimumFractionDigits: 2});
+    return price.toLocaleString('en-US', {minimumFractionDigits: 2}) + ' MAD';
 }
 
 // Product Card HTML Generator
@@ -599,7 +599,7 @@ function updateCartUI() {
     // Update Drawer Contents
     if(state.cart.length === 0) {
         cartItemsContainer.innerHTML = `<div class="cart-empty">Your cart is elegantly empty.</div>`;
-        cartTotalAmount.textContent = '$0.00';
+        cartTotalAmount.textContent = '0.00 MAD';
         checkoutBtn.disabled = true;
         return;
     }
